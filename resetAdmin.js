@@ -29,13 +29,11 @@ async function resetAdmin() {
     );
 
     if (!admin) {
-      console.log("Admin user not found");
       process.exit(1);
     }
 
     console.log("Admin password reset successfully");
 
-    // 4️⃣ Optional: Generate a token to test login
     const token = generateToken(admin._id);
     console.log("Test token:", token);
 

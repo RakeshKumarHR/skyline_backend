@@ -9,6 +9,11 @@ const commentSchema = mongoose.Schema(
       required: true,
     },
     text: { type: String, required: true },
+    status: {
+      type: String,
+      enum: ["visible", "hidden"],
+      default: "visible",
+    },
   },
   { timestamps: true }
 );

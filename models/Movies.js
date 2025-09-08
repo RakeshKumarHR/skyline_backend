@@ -8,9 +8,19 @@ const movieSchema = mongoose.Schema(
     genres: [
       { type: mongoose.Schema.Types.ObjectId, ref: "Genre", required: true },
     ],
-    ratings: [{ type: Number, default: 0 }],
+    ratings: [
+      {
+        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+        value: { type: Number, default: 0 },
+        createdAt: { type: Date, default: Date.now },
+        updatedAt: { type: Date, default: Date.now },
+      },
+    ],
     averageRating: { type: Number, default: 0 },
     reviewsCount: { type: Number, default: 0 },
+    comments: [
+      { type: mongoose.Schema.Types.ObjectId, ref: "Comments", required: true },
+    ],
   },
   { timestamps: true }
 );
